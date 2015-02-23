@@ -1,24 +1,21 @@
-# &lt;my-repo&gt;
+# &lt;stop-watch&gt;
 
-> A bare minimum custom element starter-kit using [Polymer](http://www.polymer-project.org/).
->
-> Like [Yeoman](http://yeoman.io/)? Use the [generator-element](https://www.npmjs.org/package/generator-element) instead.
->
-> Looking for a working example? Check [hello-world-polymer](https://github.com/webcomponents/hello-world-polymer).
+> A stopwatch custom element using [Polymer](http://www.polymer-project.org/) and [Moment.js](http://www.momentjs.com).
+
 
 ## Demo
 
-[Check it live!](http://my-user.github.io/my-repo)
+[Check it live!](http://my-user.github.io/stop-watch)
 
 ## Install
 
 Install the component using [Bower](http://bower.io/):
 
 ```sh
-$ bower install my-repo --save
+$ bower install stop-watch --save
 ```
 
-Or [download as ZIP](https://github.com/my-user/my-repo/archive/master.zip).
+Or [download as ZIP](https://github.com/stonelasley/stop-watch/archive/master.zip).
 
 ## Usage
 
@@ -37,7 +34,7 @@ Or [download as ZIP](https://github.com/my-user/my-repo/archive/master.zip).
 3. Start using it!
 
     ```html
-    <my-element></my-element>
+    <stop-watch></stop-watch>
     ```
 
 ## Options
@@ -102,7 +99,7 @@ In order to run it locally you'll need to fetch some dependencies and a basic se
 
 ## History
 
-For detailed changelog, check [Releases](https://github.com/my-user/my-repo/releases).
+For detailed changelog, check [Releases](https://github.com/stonelasley/stop-watch/releases).
 
 ## License
 
