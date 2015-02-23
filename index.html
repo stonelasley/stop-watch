@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Stop-watch : Polymer Stop Watch">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Stop-watch</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/stonelasley/stop-watch">View on GitHub</a>
+
+          <h1 id="project_title">Stop-watch</h1>
+          <h2 id="project_tagline">Polymer Stop Watch</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/stonelasley/stop-watch/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/stonelasley/stop-watch/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="stop-watch" class="anchor" href="#stop-watch" aria-hidden="true"><span class="octicon octicon-link"></span></a>&lt;stop-watch&gt;</h1>
+
+<blockquote>
+<p>A stopwatch custom element using <a href="http://www.polymer-project.org/">Polymer</a> and <a href="http://www.momentjs.com">Moment.js</a>.</p>
+</blockquote>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p><a href="http://my-user.github.io/stop-watch">Check it live!</a></p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Install the component using <a href="http://bower.io/">Bower</a>:</p>
+
+<div class="highlight highlight-sh"><pre>$ bower install stop-watch --save</pre></div>
+
+<p>Or <a href="https://github.com/stonelasley/stop-watch/archive/master.zip">download as ZIP</a>.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ol>
+<li>
+<p>Import Web Components' polyfill:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/webcomponentsjs/webcomponents.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+</li>
+<li>
+<p>Import Custom Element:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s1"><span class="pl-pds">"</span>import<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>bower_components/my-repo/dist/my-element.html<span class="pl-pds">"</span></span>&gt;</pre></div>
+</li>
+<li>
+<p>Start using it!</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">stop</span><span class="pl-e">-watch</span>&gt;&lt;/<span class="pl-ent">stop</span><span class="pl-e">-watch</span>&gt;</pre></div>
+</li>
+</ol>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Options</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>foo</code></td>
+<td><em>string</em></td>
+<td><code>bar</code></td>
+<td>Lorem ipsum dolor.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unicorn()</code></td>
+<td>None.</td>
+<td>Nothing.</td>
+<td>Magic stuff appears.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h2>
+
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onsomething</code></td>
+<td>Triggers when something happens.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h2>
+
+<p>In order to run it locally you'll need to fetch some dependencies and a basic server setup.</p>
+
+<ul>
+<li>
+<p>Install <a href="http://bower.io/">Bower</a> &amp; <a href="http://gruntjs.com/">Grunt</a>:</p>
+
+<div class="highlight highlight-sh"><pre>$ [sudo] npm install -g bower grunt-cli</pre></div>
+</li>
+<li>
+<p>Install local dependencies:</p>
+
+<div class="highlight highlight-sh"><pre>$ bower install <span class="pl-k">&amp;&amp;</span> npm install</pre></div>
+</li>
+<li>
+<p>To test your project, start the development server and open <code>http://localhost:8000</code>.</p>
+
+<div class="highlight highlight-sh"><pre>$ grunt server</pre></div>
+</li>
+<li>
+<p>To build the distribution files before releasing a new version.</p>
+
+<div class="highlight highlight-sh"><pre>$ grunt build</pre></div>
+</li>
+<li>
+<p>To provide a live demo, send everything to <code>gh-pages</code> branch.</p>
+
+<div class="highlight highlight-sh"><pre>$ grunt deploy</pre></div>
+</li>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it!</li>
+<li>Create your feature branch: <code>git checkout -b my-new-feature</code>
+</li>
+<li>Commit your changes: <code>git commit -m 'Add some feature'</code>
+</li>
+<li>Push to the branch: <code>git push origin my-new-feature</code>
+</li>
+<li>Submit a pull request :D</li>
+</ol>
+
+<h2>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h2>
+
+<p>For detailed changelog, check <a href="https://github.com/stonelasley/stop-watch/releases">Releases</a>.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Stop-watch maintained by <a href="https://github.com/stonelasley">stonelasley</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
