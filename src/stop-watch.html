@@ -1,148 +1,105 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<script src="../bower_components/moment/moment.js"></script>
 
 
-<polymer-element name="stop-watch">
+<polymer-element name="stop-watch" attributes="mode offset autostart">
     <template>
 
         <link rel="stylesheet" href="../style.css" />
 
         <div id="face">
-            <span id="minutes0">{{time[0]}}</span>
-            <span id="minutes1">{{time[1]}}</span>
-            <b>:</b>
-            <span id="seconds0">{{time[2]}}</span>
-            <span id="seconds1">{{time[3]}}</span>
-            <b>:</b>
-            <span id="deciseconds">{{time[4]}}</span>
-            <span id="centiseconds">{{time[5]}}</span>
-
-
+            <span id="minutes0">{{time}}</span>
         </div>
-            <button class="btn timer-start" on-click="{{start}}" disabled?="{{isRunning}}">Start</button>
+            <button class="btn timer-start" on-click="{{start}}" disabled?="{{active}}">Start</button>
             <button class="btn timer-stop" on-click="{{stop}}">Stop</button>
             <button class="btn timer-reset" on-click="{{reset}}">Reset</button>
         </template>
 
     </template>
     <script>
-        var defaultTime = '000000';
-        var timeFormat = 'mmssSS';
-        Polymer('stop-watch', {
-            /**
-             * The `displayMode` attribute determine the kind of clock to display.
-             *
-             * @attribute displayMode
-             * @type string
-             * @default timer
-             * @options timer, countdown
-             */
-            displayMode: 'timer',
-            /**
-             * Set the hh:mm:ss to start from for the countdown mode
-             *
-             * @attribute countdownFrom
-             * @type string
-             * @default null
-             */
-            countdownFrom: null,
-            /**
-             * String containing the digits displayed in the flip clock
-             *
-             * @attribute time
-             * @type string
-             * @default '000000'
-             */
-            time: defaultTime,
-            /**
-             * Set the hours, minutes and seconds in the timer
-             *
-             * @attribute timer
-             * @type string
-             */
-            timer: null,
-            /**
-             * Auto start timer and/or countdown
-             *
-             * @attribute auto
-             * @type boolean
-             */
-            auto: false,
-            /**
-             * Track if the timer (or the countdown) is running or not
-             *
-             * @attribute isRunning
-             * @type boolean
-             */
-            isRunning: false,
-            /**
-             * stopWatchs a clock instance
-             *
-             * @method stopWatch
-             */
-            stopWatch: function() {
-                if(this.isRunning) {
-                    this.time = this.timer.add(10, 'ms').format(timeFormat);
-                    this.async(this.stopWatch, null, 10);
-                }
-            },
-            /**
-             * The `eggTimer` method stopWatch a countdown
-             *
-             * @method eggTimer
-             */
-            eggTimer: function() {
-                if(this.isRunning) {
-                    if(this.time > 0) {
-                        this.time = this.timer.subtract(10, 'ms').format(timeFormat);
-                        this.async(this.eggTimer, null, 10);
+        (function() {
+            Polymer('stop-watch', {
+                mode: 'stopwatch', //'timer'
+                time: 0,
+                offset: 0,
+                autostart: false,
+                active: false,
+                timer: false,
+                startTime: null,
+                pauseTime: null,
+                start: function () {
+                    this.active = true;
+                    this.startTime = Date.now();
+                    switch (this.mode){
+                        case 'stopwatch':
+                            this.fire('onWatchStart', {startTime: this.startTime});
+                            this.uptick();
+                            break;
+                        case 'timer':
+                            this.fire('onTimerStart', {startTime: this.startTime});
+                            this.downtick();
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                stop: function () {
+                    this.active = false;
+                    return false;
+                },
+                uptick: function () {
+                    var elapsed = Math.floor((Date.now() - this.startTime));
+                    if(!this.active) {
+                        this.fire('onWatchStop', {duration:elapsed} )
+                        return false;
+                    }
+                    this.fire("tick", {elapsed:elapsed});
+                    this.time = this.setTime(elapsed + this.offset);
+                    this.async(this.uptick, null, 10);
+                },
+                downtick: function () {
+                    var elapsed = Math.floor((Date.now() - this.startTime)),
+                        remaining = this.offset - elapsed;
+
+                    if(!this.active) {
+                        this.fire('onTimerStop', {duration:elapsed, remaining: remaining} )
+                        return false;
+                    }
+                    if(remaining <= 0) {
+                        this.time = this.setTime(0);
+                        this.stop();
+                        return false;
+                    } else {
+                        this.time = this.setTime(remaining);
+                        this.async(this.downtick, null, 100);
+                    }
+                },
+                reset: function() {
+                    this.fire('onReset');
+                    this.active = false;
+                    this.time = this.setTime(this.offset);
+                },
+                setTime: function (duration) {
+                    try {
+                        var s = parseInt((duration / 1000) % 60),
+                            m = parseInt((duration / (1000 * 60)) % 60),
+                            ms = String(duration).slice(-3);
+
+                        m = (m < 10) ? "0" + m : m;
+                        s = (s < 10) ? "0" + s : s;
+
+                        return m + ":" + s + "." + ms;
+                    } catch(e){
+                        alert(e);
+                    }
+                },
+                ready: function() {
+                    this.reset();
+                    if(this.autostart === true) {
+                        this.start();
                     }
                 }
-            },
-            /**
-             * Starts the timer
-             *
-             * @method start
-             */
-            start: function() {
-                if(!this.timer) {
-
-                }
-                this.isRunning = true;
-                this.countdownFrom ? this.eggTimer() : this.stopWatch();
-            },
-            /**
-             * Stops the timer
-             *
-             * @method stopCount
-             */
-            stop: function() {
-                this.isRunning = false;
-            },
-            /**
-             * The `reset` method resets the method
-             *
-             * @method resetCount
-             */
-            reset: function() {
-                this.isRunning = false;
-                this.time = this.countdownFrom ? '00' + this.countdownFrom + '00' : defaultTime;
-                this.timer = moment().hours(0).minutes(0).seconds(0);
-            },
-            ready: function() {
-                switch(this.displayMode) {
-                    case 'countdown':
-                        this.eggTimer();
-                        break;
-                    default:
-                        this.stopWatch();
-                }
-                if(this.countdownFrom) {
-                    this.time = '00' + this.countdownFrom + '00';
-                }
-                this.reset()
-            }
-        });
+            });
+        })();
     </script>
 
 
