@@ -5,7 +5,7 @@
 
 ## Demo
 
-[Check it live!](http://my-user.github.io/stop-watch)
+[Check it live!](http://stonelasley.github.io/stop-watch)
 
 ## Install
 
