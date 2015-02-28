@@ -1,12 +1,14 @@
 {
-  "name": "my-repo",
-  "version": "0.0.0",
-  "description": "My awesome Custom Element",
+  "name": "stop-watch",
+  "version": "0.0.2",
+  "description": "Polymer custom web component",
   "license": "MIT",
-  "main": "dist/my-element.html",
+  "main": "dist/stop-watch.html",
   "keywords": [
-    "polymer",
-    "web-components"
+      "stopwatch",
+      "timer",
+      "polymer",
+      "web-components"
   ],
   "ignore": [
     "**/.*",
