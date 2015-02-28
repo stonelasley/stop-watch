@@ -1,6 +1,6 @@
 # &lt;stop-watch&gt;
 
-> A stopwatch custom element using [Polymer](http://www.polymer-project.org/) and [Moment.js](http://www.momentjs.com).
+> A stopwatch custom element using [Polymer](http://www.polymer-project.org/)
 
 
 ## Demo
@@ -12,7 +12,7 @@
 Install the component using [Bower](http://bower.io/):
 
 ```sh
-$ bower install stop-watch --save
+$ bower install polymer-stop-watch --save
 ```
 
 Or [download as ZIP](https://github.com/stonelasley/stop-watch/archive/master.zip).
@@ -28,7 +28,7 @@ Or [download as ZIP](https://github.com/stonelasley/stop-watch/archive/master.zi
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/my-repo/dist/my-element.html">
+    <link rel="import" href="bower_components/stonelasley/dist/stop-watch.html">
     ```
 
 3. Start using it!
@@ -39,9 +39,12 @@ Or [download as ZIP](https://github.com/stonelasley/stop-watch/archive/master.zi
 
 ## Options
 
-Attribute     | Options     | Default      | Description
----           | ---         | ---          | ---
-`foo`         | *string*    | `bar`        | Lorem ipsum dolor.
+Attribute       | Options     | Default      | Description
+---             | ---         | ---          | ---
+`mode`          | *string*    | 'stopwatch'  | Sets the mode 'stopwatch' or 'timer'
+`autoStart`     | *bool*      | false        | Starts counting as soon as the element has loaded.
+`offset`        | *number*    | 0            | Starts counting at this number. In Milliseconds.
+
 
 ## Methods
 
@@ -51,9 +54,14 @@ Method        | Parameters   | Returns     | Description
 
 ## Events
 
-Event         | Description
----           | ---
-`onsomething` | Triggers when something happens.
+Event           | Description
+---             | ---
+`onWatchStart`  | Triggers when stopwatch is started
+`onWatchStop`   | Triggers when stopwatch is stopped;
+`onTimerStart`  | Triggers when timer is started
+`onTimerStop`   | Triggers when timer is stopped
+`onReset`       | Triggers when timer or stopwatch are reset;
+
 
 ## Development
 
