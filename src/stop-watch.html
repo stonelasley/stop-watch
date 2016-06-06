@@ -3,17 +3,34 @@
 
 <dom-module id="stop-watch">
     <template>
-        <link rel="stylesheet" href="../style.css" />
+        <style>
+            :host {
+                display: block;
+            }
+            
+            :host .btn {
+                margin: 20px 10px 10px 10px;
+                padding: 5px 10px;
+                border-radius: 2px;
+                color: #ffffff;
+            }
+            
+            #face {
+                @apply(--stop-watch-face)
+            }
+            
+            .btn {
+                @apply(--stop-watch-buttons)
+            }
+        </style>
+        <!--<link rel="stylesheet" href="../style.css" />-->
 
         <div id="face">
             <span id="minutes0">{{time}}</span>
         </div>
-            <button class="btn timer-start" on-click="start" disabled="{{active}}">Start</button>
-            <button class="btn timer-stop" on-click="stop">Stop</button>
-            <button class="btn timer-reset" on-click="reset">Reset</button>
-        </div>
-        </template>
-
+        <button class="btn timer-start" on-click="start" disabled="{{active}}">Start</button>
+        <button class="btn timer-stop" on-click="stop">Stop</button>
+        <button class="btn timer-reset" on-click="reset">Reset</button>
     </template>
     <script>
     (function() {
