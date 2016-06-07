@@ -1,6 +1,6 @@
 {
   "name": "stop-watch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Polymer custom web component",
   "license": "MIT",
   "main": "dist/stop-watch.html",
