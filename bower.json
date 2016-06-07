@@ -10,6 +10,10 @@
       "polymer",
       "web-components"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crodgers/stop-watch"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
