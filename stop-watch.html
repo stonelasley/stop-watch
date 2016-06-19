@@ -1,5 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-
+<link rel="import" href="./bower_components/polymer/polymer.html">
 
 <dom-module id="stop-watch">
     <template>
@@ -54,7 +53,7 @@
                 
                 autostart: {
                     type: Boolean,
-                    value: false,
+                    value: true,
                     notify: true
                 },
                 
@@ -160,6 +159,7 @@
 
             ready: function() {
                 this.reset();
+                this.fire('stop-watch-upgraded');
                 if(this.autostart === true) {
                     this.start();
                 }
