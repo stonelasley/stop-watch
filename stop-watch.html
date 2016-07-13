@@ -128,6 +128,7 @@
                 }
                 if(remaining <= 0) {
                     this.set('time', this.setTime(0));
+                    this.fire('timeUp');
                     this.stop();
                     return false;
                 } else {
@@ -158,7 +159,7 @@
             },
 
             ready: function() {
-                this.reset();
+                // this.reset();
                 this.fire('stop-watch-upgraded');
                 if(this.autostart === true) {
                     this.start();
