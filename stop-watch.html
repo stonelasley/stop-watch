@@ -83,6 +83,11 @@
                     type: Date,
                     value: null
                 },
+                
+                hideMilliseconds: {
+                    type: Boolean,
+                    value: true
+                }
             },
             
             start: function () {
@@ -151,8 +156,17 @@
 
                     m = (m < 10) ? "0" + m : m;
                     s = (s < 10) ? "0" + s : s;
+                    
+                    var displayTime;
+                    
+                    if (this.hideMilliseconds) {
+                        displayTime = m + ":" + s;
+                    } else {
+                        m + ":" + s + "." + ms;
+                    }
 
-                    return m + ":" + s + "." + ms;
+                    return displayTime;
+
                 } catch(e){
                     alert(e);
                 }
