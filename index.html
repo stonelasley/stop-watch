@@ -8,10 +8,24 @@
     <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
 
     <!-- Importing Custom Elements -->
-    <link rel="import" href="src/stop-watch.html">
+    <link rel="import" href="stop-watch.html">
+    <style is="custom-style">
+        stop-watch {
+            --stop-watch-face: {
+              font-size: 70px;  
+            };
+            
+            --stop-watch-buttons: {
+                display: none;
+            };
+        }
+    </style>
 </head>
 <body>
-    <!-- Using Custom Elements -->
-    <stop-watch></stop-watch>
+    <template id="app" is="dom-bind">
+        <!-- Using Custom Elements -->
+        <stop-watch mode='timer'
+                    offset="6000"
+    </template>
 </body>
 </html>

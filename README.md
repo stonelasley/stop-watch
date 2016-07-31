@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/crodgers/stop-watch.png?label=ready&title=Ready)](https://waffle.io/crodgers/stop-watch)
 # &lt;stop-watch&gt;
 
 > A stopwatch custom element using [Polymer](http://www.polymer-project.org/)

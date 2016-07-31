@@ -1,6 +1,5 @@
 {
   "name": "stop-watch",
-  "version": "0.0.2",
   "description": "Polymer custom web component",
   "license": "MIT",
   "main": "dist/stop-watch.html",
@@ -10,12 +9,16 @@
       "polymer",
       "web-components"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/crodgers/stop-watch.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.5.1"
+    "polymer": "Polymer/polymer#^1.2.0"
   }
 }
